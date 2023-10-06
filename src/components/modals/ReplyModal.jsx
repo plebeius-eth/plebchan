@@ -161,6 +161,12 @@ const ReplyModal = ({ isOpen, closeModal }) => {
       return;
     }
 
+    // Google Analytics Event for Reply
+    window.gtag('event', 'reply', {
+      'event_category': 'interaction',
+      'event_label': `User ${account?.author.shortAddress} replies to c/${selectedShortCid}`
+    });
+
     setPublishCommentOptions((prevPublishCommentOptions) => ({
       ...prevPublishCommentOptions,
       author: {

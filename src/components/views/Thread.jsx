@@ -428,6 +428,12 @@ const Thread = () => {
       return;
     }
 
+    // Google Analytics Event for Reply
+    window.gtag('event', 'reply', {
+      'event_category': 'interaction',
+      'event_label': `User ${account?.author.shortAddress} replies to c/${comment.shortCid}`
+    });
+
     setPublishCommentOptions((prevPublishCommentOptions) => ({
       ...prevPublishCommentOptions,
       author: {
